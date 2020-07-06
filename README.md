@@ -83,3 +83,62 @@ from salesman
 WHERE NOT EXISTS (select customer.Id FROM customer WHERE customer.Salesman_id = Salesman.Id)
 ```
 ## Task 8
+Function that removes duplicates of an array and return an array of only unique elements.
+```
+var arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
+function unique (arr){
+	var arru = [];
+  for (var i=0; i < arr.length; i++){
+  	if(arru.includes(arr[i]) == false){
+    	arru.push(arr[i]);
+    }
+  }
+};
+unique(arr);//[1, 2, 3, 5, 9, 8]
+```
+## Task 9
+Function that duplicates array n-times.
+```
+function duplicate (arr, times){
+	var arr_res = [];
+  for (var i=0; i < times; i++){
+  	arr_res = arr_res.concat(arr);
+  }
+  return arr_res;
+};
+
+console.log(duplicate([1, 2, 3, 4, 5], 3)); // [1,2,3,4,5,1,2,3,4,5,1,2,3,4,5]
+```
+## Task 10
+The problem is that the function binding is only for existing elements. This can be fixed with the "on ()" function on the parent element and with the selector parameter on those elements to be added. The working code is below.
+```
+$('body').on('click', 'button', function() {
+ 	console.log( "Button Clicked:", this);
+});
+
+/* ... some time later ... */
+// dynamically add another button to the page
+$( "body" ).append( "<button class='btn'>Click Alert!</button>" );
+```
+## Task 11
+HTML:
+```
+<html>
+  <head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  </head>
+  <body>
+    <button type="button" class="btn btn-primary my_btn">
+      +1 <span class="badge badge-light my_span">0</span>
+    </button>
+  </body>
+</html>
+```
+JS:
+```
+$(".my_btn").on("click", function(){
+	var i = $(".my_span").text();
+  i++;
+  $(".my_span").text(i);
+});
+```
